@@ -23,6 +23,8 @@ public class DBTest {
         for (WifiInfo wifiInfo : wifiInfos) {
             System.out.println(wifiInfo);
         }
+
+        assert(wifiInfos.size() > 0);
     }
 
     @Test
@@ -35,11 +37,7 @@ public class DBTest {
         WifiHistory lastWifiHistory = DBUtil.getLastWifiHistory();
         int deletedCnt = DBUtil.deleteWifiHistory(lastWifiHistory.getId());
 
-        if(lastWifiHistory != null && deletedCnt == 1) {
-            System.out.println("WIFI History 삭제 성공");
-        } else {
-            System.out.println("WIFI History 삭제 실패");
-        }
+        assert(deletedCnt == 1);
     }
 
     @Test
@@ -49,5 +47,7 @@ public class DBTest {
         for (WifiHistory wifihistory : wifiHistories) {
             System.out.println(wifihistory);
         }
+
+        assert(wifiHistories.size() > 0);
     }
 }
