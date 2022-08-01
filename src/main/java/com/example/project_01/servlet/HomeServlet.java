@@ -2,7 +2,8 @@ package com.example.project_01.servlet;
 
 import com.example.project_01.domain.WifiHistory;
 import com.example.project_01.domain.WifiInfo;
-import com.example.project_01.service.DBUtil;
+import com.example.project_01.service.Wifi_History_Db_Util;
+import com.example.project_01.service.Wifi_Db_Util;
 
 import java.io.*;
 import java.util.List;
@@ -91,7 +92,7 @@ public class HomeServlet extends HttpServlet {
                 Double doubleLat = Double.valueOf(lat);
                 Double doubleLnt = Double.valueOf(lnt);
 
-                List<WifiInfo> wifiInfos = DBUtil.getWifiInfos();
+                List<WifiInfo> wifiInfos = Wifi_Db_Util.getWifiInfos();
                 
 
                 if (wifiInfos.size() == 0) {
@@ -102,7 +103,7 @@ public class HomeServlet extends HttpServlet {
                     WifiHistory wifiHistory = new WifiHistory();
                     wifiHistory.setLat(lat);
                     wifiHistory.setLnt(lnt);
-                    DBUtil.insertWifiHistory(wifiHistory);
+                    Wifi_History_Db_Util.insertWifiHistory(wifiHistory);
 
                     wifiInfos.sort((o1, o2) -> {
                         double o1Distance = getDistance(doubleLat, doubleLnt, o1);
@@ -165,11 +166,6 @@ public class HomeServlet extends HttpServlet {
 
     /**
      * 출처: https://se-jung-h.tistory.com/entry/%EC%9E%90%EB%B0%94intelij-%EC%A2%8C%ED%91%9C%EC%9C%84%EB%8F%84%EA%B2%BD%EB%8F%84%EB%A1%9C-%EC%8B%A4%EC%A0%9C-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0
-     *
-     * @param lat
-     * @param lnt
-     * @param wifiInfo
-     * @return
      */
     private Double getDistance(Double lat, Double lnt, WifiInfo wifiInfo) {
         Double lat2 = Double.valueOf(wifiInfo.getLat());

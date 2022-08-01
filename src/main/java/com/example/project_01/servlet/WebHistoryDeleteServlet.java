@@ -1,6 +1,6 @@
 package com.example.project_01.servlet;
 
-import com.example.project_01.service.DBUtil;
+import com.example.project_01.service.Wifi_History_Db_Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class WebHistoryDeleteServlet extends HttpServlet {
 
         if (id != null) {
             try {
-                DBUtil.deleteWifiHistory(Integer.parseInt(id));
+                Wifi_History_Db_Util.deleteWifiHistory(Integer.parseInt(id));
             } catch (Exception e) {
                 e.printStackTrace();
             }
