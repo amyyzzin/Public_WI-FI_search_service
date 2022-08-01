@@ -7,9 +7,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.project_01.service.Wifi_History_Db_Util.*;
+import static com.example.project_01.service.WifiHistoryDbUtil.*;
 
-public class Wifi_Db_Util {
+public class WifiDbUtil {
 
     private final static String WIFI_DB_FILE = "C:\\Users\\82109\\OneDrive\\바탕 화면\\제로베이스 백엔드 스쿨 _2기_김우진(220717)\\제로베이스 백엔드 스쿨 _2기_김우진(220723)_소스파일\\WIFI.db";
 

@@ -9,7 +9,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wifi_History_Db_Util {
+public class WifiHistoryDbUtil {
     public final static int BATCH_SIZE = 1000;
 
     private final static String WIFI_HISTORY_DB_FILE = "C:\\Users\\82109\\OneDrive\\바탕 화면\\제로베이스 백엔드 스쿨 _2기_김우진(220717)\\제로베이스 백엔드 스쿨 _2기_김우진(220723)_소스파일\\WIFI_HISTORY.db";

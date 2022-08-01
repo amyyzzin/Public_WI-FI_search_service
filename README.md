@@ -12,3 +12,4 @@
 * private final static String WIFI_HISTORY_DB_FILE = 
   "C:\\Users\\82109\\OneDrive\\바탕 화면\\제로베이스 백엔드 스쿨 _2기_김우진(220717)\\제로베이스 백엔드 스쿨 _2기_김우진(220723)_소스파일\\WIFI_HISTORY.db";
 
+* DBUtil 을 WifiDbUtil, WifiHistoryUtil 로 분리 작업 하였습니다.

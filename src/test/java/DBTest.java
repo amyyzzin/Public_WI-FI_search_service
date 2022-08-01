@@ -2,8 +2,8 @@ import com.example.project_01.domain.TbPublicWifiInfo;
 import com.example.project_01.domain.WifiHistory;
 import com.example.project_01.domain.WifiInfo;
 import com.example.project_01.service.ApiUtil;
-import com.example.project_01.service.Wifi_History_Db_Util;
-import com.example.project_01.service.Wifi_Db_Util;
+import com.example.project_01.service.WifiHistoryDbUtil;
+import com.example.project_01.service.WifiDbUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -14,12 +14,12 @@ public class DBTest {
     @Test
     public void insertWifiInfoTest() throws IOException, ClassNotFoundException {
         TbPublicWifiInfo tbPublicWifiInfo = ApiUtil.callApi();
-        Wifi_Db_Util.insertWifiInfos(tbPublicWifiInfo);
+        WifiDbUtil.insertWifiInfos(tbPublicWifiInfo);
     }
 
     @Test
     public void selectWifiInfoTest() throws ClassNotFoundException {
-        List<WifiInfo> wifiInfos = Wifi_Db_Util.getWifiInfos();
+        List<WifiInfo> wifiInfos = WifiDbUtil.getWifiInfos();
 
         for (WifiInfo wifiInfo : wifiInfos) {
             System.out.println(wifiInfo);
@@ -33,17 +33,17 @@ public class DBTest {
         WifiHistory wifiHistory = new WifiHistory();
         wifiHistory.setLat("0.0");
         wifiHistory.setLnt("0.0");
-        Wifi_History_Db_Util.insertWifiHistory(wifiHistory);
+        WifiHistoryDbUtil.insertWifiHistory(wifiHistory);
 
-        WifiHistory lastWifiHistory = Wifi_History_Db_Util.getLastWifiHistory();
-        int deletedCnt = Wifi_History_Db_Util.deleteWifiHistory(lastWifiHistory.getId());
+        WifiHistory lastWifiHistory = WifiHistoryDbUtil.getLastWifiHistory();
+        int deletedCnt = WifiHistoryDbUtil.deleteWifiHistory(lastWifiHistory.getId());
 
         assert(deletedCnt == 1);
     }
 
     @Test
     public void selectWifiHistoryTest() throws ClassNotFoundException {
-        List<WifiHistory> wifiHistories = Wifi_History_Db_Util.getWifiHistories();
+        List<WifiHistory> wifiHistories = WifiHistoryDbUtil.getWifiHistories();
 
         for (WifiHistory wifihistory : wifiHistories) {
             System.out.println(wifihistory);

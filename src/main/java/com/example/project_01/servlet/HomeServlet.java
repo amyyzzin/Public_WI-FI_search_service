@@ -2,8 +2,8 @@ package com.example.project_01.servlet;
 
 import com.example.project_01.domain.WifiHistory;
 import com.example.project_01.domain.WifiInfo;
-import com.example.project_01.service.Wifi_History_Db_Util;
-import com.example.project_01.service.Wifi_Db_Util;
+import com.example.project_01.service.WifiHistoryDbUtil;
+import com.example.project_01.service.WifiDbUtil;
 
 import java.io.*;
 import java.util.List;
@@ -92,7 +92,7 @@ public class HomeServlet extends HttpServlet {
                 Double doubleLat = Double.valueOf(lat);
                 Double doubleLnt = Double.valueOf(lnt);
 
-                List<WifiInfo> wifiInfos = Wifi_Db_Util.getWifiInfos();
+                List<WifiInfo> wifiInfos = WifiDbUtil.getWifiInfos();
                 
 
                 if (wifiInfos.size() == 0) {
@@ -103,7 +103,7 @@ public class HomeServlet extends HttpServlet {
                     WifiHistory wifiHistory = new WifiHistory();
                     wifiHistory.setLat(lat);
                     wifiHistory.setLnt(lnt);
-                    Wifi_History_Db_Util.insertWifiHistory(wifiHistory);
+                    WifiHistoryDbUtil.insertWifiHistory(wifiHistory);
 
                     wifiInfos.sort((o1, o2) -> {
                         double o1Distance = getDistance(doubleLat, doubleLnt, o1);

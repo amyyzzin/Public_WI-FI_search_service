@@ -1,5 +1,5 @@
 <%@ page import="com.example.project_01.domain.WifiHistory" %>
-<%@ page import="com.example.project_01.service.Wifi_History_Db_Util" %>
+<%@ page import="com.example.project_01.service.WifiHistoryDbUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -53,7 +53,7 @@
         </thead>
         <tbody>
             <%
-                List<WifiHistory> wifiHistories = Wifi_History_Db_Util.getWifiHistories();
+                List<WifiHistory> wifiHistories = WifiHistoryDbUtil.getWifiHistories();
             %>
 
             <% for (WifiHistory wifiHistory : wifiHistories) { %>
