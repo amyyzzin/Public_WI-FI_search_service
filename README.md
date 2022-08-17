@@ -1,4 +1,4 @@
-# Zerobase_Project_01_Public_WI-FI_search_service
+# Public_WI-FI_search_service
 
 <h3><b>서울시 OPEN API를 통해 내 위치 기반 공공 와이파이 정보를 확인하는 웹서비스 입니다.</b></h3>
 
